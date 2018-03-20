@@ -17,6 +17,12 @@ if [ -e $SPR.xz ]
 		xz -d $SPR.xz
 		mv $SPR `cat $SPR.txt`
 		rm $SPR.txt
+	elif [ -d $SPR ]
+	then
+		mkdir `cat $SPR/$ARG.txt`/$ARG
+		mv $SPR/*.xz `cat $SPR/$ARG.txt`/$ARG/
+		xz -d `cat $SPR/$ARG.txt`/$ARG/*.xz
+		rm -rf $SPR
 	else
 		if [ -f $ARG ];	then
 				echo "plik"
@@ -25,7 +31,11 @@ if [ -e $SPR.xz ]
 				mv $ARG.xz $KOSZ;
 			
 			elif [ -d $ARG ]; then
-				echo "katalog"
+				mkdir $KOSZ/$ARG
+				pwd > ~/KOSZ/$ARG/$ARG.txt
+				xz -z $ARG/*
+				mv $ARG/* $KOSZ/$ARG
+				rmdir $ARG;
 			elif [ -L $ARG ]; then
 				echo "dowiazanie"
 			else
