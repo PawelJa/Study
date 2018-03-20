@@ -26,6 +26,7 @@ if [ -e $SPR.xz ]
 		DES=`cat $SPR-dow.txt`
 		SOU=`cat $SPR.txt`
 		ln -s `cat $SPR-dow.txt` `cat $SPR.txt`/$ARG
+		rm $SPR.txt $SPR-dow.txt $SPR-dow.xz
 	else
 		if [ -L $ARG ];	then
 				LINK=`pwd`/`ls -l $ARG | sed 's/^.* -> //'`
