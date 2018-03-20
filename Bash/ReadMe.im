@@ -1,5 +1,18 @@
+currency.sh
+
 Scrypt features:
   - converting between currencies
   - showing currency rate
 
 Datas are loading from API
+
+***************************************
+
+saferm.sh
+
+Scrypt features:
+  - safe removing files and directories
+  - safe removing symbloic link
+  - restoring removed files, directories and symbolic links
+  
+  - used xz to compress files
